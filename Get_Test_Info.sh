@@ -3,6 +3,7 @@
 INTERVAL=5
 PREFIX=$INTERVAL-sec-status
 RUNFILE=/home/benchmarks/running
+echo "1" > $RUNFIEL
 mysql -uroot -p123456 -e 'SHOW GLOBAL VARIABLES' >> mysql-variables
 while test -e $RUNFILE; do
     file=$(date +%F_%I)
