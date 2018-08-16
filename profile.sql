@@ -16,3 +16,4 @@ group by STATE
 order by total_R desc;
 # 关闭当前会话的查询性能剖析开关
 set profiling = 0;
+# INFORMATION_SCHEMA表文档 https://dev.mysql.com/doc/refman/5.7/en/profiling-table.html
