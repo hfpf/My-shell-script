@@ -1,5 +1,7 @@
 # 当前会话启用查询性能剖析
 set profiling = 1;
+# 执行需要剖析的SQL
+select * from `sakila`.`nicer_but_slower_film_list`;
 # 显示所有使用性能剖析的查询及其Query_ID
 show profiles;
 # 显示Query_ID为1的查询的剖析报告
