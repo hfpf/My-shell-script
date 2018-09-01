@@ -1,7 +1,7 @@
 # 将会话级别的计数器重置为0
 FLUSH STATUS;
 # 执行sql
-SELECT `created_at` FROM users ORDER BY 'id';
+select * from `sakila`.`nicer_but_slower_film_list`;
 # 检查计数器的结果
 SHOW STATUS WHERE Variable_name LIKE 'Handler%' OR Variable_name LIKE 'Created%';
 
