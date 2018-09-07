@@ -12,6 +12,6 @@
 
 # 3. 一秒执行一次 SHOW GLOBAL STATUS命令捕获数据，通过计数器数据的峰谷来发现问题。
 mysqladmin ext -i1 | awk '
-/Queries/{q=$4-qp;qp=$4}
+/Queries/{q=$4-qp;qp=$4}    // 变量qp中保存的是上一次结果，默认为0
 /Threads_connected/{tc=$4}
 /Threads_running/{printf "%5d %5d %5d\n", q, tc, $4}'
