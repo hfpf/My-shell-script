@@ -15,3 +15,10 @@ mysqladmin ext -i1 | awk '
 /Queries/{q=$4-qp;qp=$4}    // 变量qp中保存的是上一次结果，默认为0
 /Threads_connected/{tc=$4}
 /Threads_running/{printf "%5d %5d %5d\n", q, tc, $4}'
+
+# 4. 根据慢查日志，统计每秒的查询数量
+$ awk '/^# Time:/{print $3, $4, c;c=0}/^# User/{c++}' slow-query.log 080913 21:52:17 51
+080913 21:52:18 29
+080913 21:52:19 34
+080913 21:52:20 33 
+080913 21:52:21 38 
