@@ -6,7 +6,7 @@ select * from `sakila`.`nicer_but_slower_film_list`;
 show profiles;
 # 显示Query_ID为1的查询的剖析报告
 show profile for query 1;
-# 格式化并排序输出查询剖析报告
+# 格式化并排序输出查询剖析报告(SHOW PROFILE FOR QUERY n 的格式化输出方式）
 set @query_id = 1;
 select state,sum(duration) as total_R,
 round( 100*sum(duration)/(select sum(duration) from information_schema.PROFILING where QUERY_ID=@query_id),2) as pct_R,
