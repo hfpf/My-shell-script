@@ -8,4 +8,15 @@ SELECT COUNT(DISTINCT LEFT(city< 3))/COUNT(*) AS sel3,
   COUNT(DISTINCT LEFT(city< 3))/COUNT(*) AS sel6,
   COUNT(DISTINCT LEFT(city< 3))/COUNT(*) AS sel7
 FROM sakila.city_demo;
-
+                      
+# 多列索引的列顺序，选择性高的列放在前面
+SELECT COUNT(DISTINCT staff_id)/COUNT(*) AS staff_id_selectivity,
+COUNT(DISTINCT customer_id)/COUNT(*) AS customer_id_selectivity,
+COUNT(*)
+FROM payment;
+****************** 1. row ************
+                      staff_id_selectivity: 0.0001
+                      customer_id_selectivity: 0.0373
+                      COUNT(*): 16049
+# customer_id的选择性更高，所以将其作为第一列
+ ALTER TABLE payment ADD KEY(customer_id, staff_id);
