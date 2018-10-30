@@ -20,3 +20,9 @@ FROM payment;
                       COUNT(*): 16049
 # customer_id的选择性更高，所以将其作为第一列
  ALTER TABLE payment ADD KEY(customer_id, staff_id);
+
+# 查询重复或冗余索引的两个工具：
+# 1. http://code.google.com/p/common-schema/
+# 2. Percona Tookit中的 pt-duplicate-key-checker
+                   
+                      
