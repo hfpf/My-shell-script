@@ -26,3 +26,6 @@ FROM payment;
 # 2. Percona Tookit中的 pt-duplicate-key-checker
                    
                       
+# 查询未使用的索引
+# 1. Maria DB中可以先打开userstates服务器变量（默认是关闭的），运行一段时间后在查询INFORMATION_SCHEMA.INDEX_STATISTICS就能查到每个索引的使用频率。
+# 2. Percona Tookit中的 pt-index-usage可以读取查询日志，并对日志中的每条查询进行EXPLAIN操作，然后打印出关于索引和查询的报告。
